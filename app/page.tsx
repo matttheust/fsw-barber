@@ -12,13 +12,16 @@ import BarbershopItem from "./_components/barbershop-item"
 const Home = async () => {
   //Chamando o banco de dados
   const barbershops = await db.barbershop.findMany({})
+  const popularBarbershops = await db.barbershop.findMany({
+    orderBy: { name: "desc" },
+  })
 
   return (
     <div>
-      {/* header */}
+      {/* HEADER */}
       <Header />
 
-      {/* banner */}
+      {/* BANNER */}
       <div className="p-5">
         <h2 className="text-xl font-bold">Olá, Matheus!</h2>
         <p>Segunda feira, 5 de agosto</p>
@@ -28,6 +31,54 @@ const Home = async () => {
           <Input placeholder="Faça sua busca..." />
           <Button>
             <SearchIcon />
+          </Button>
+        </div>
+
+        {/* BUSCA RÁPIDA*/}
+        <div className="no-scrollbar mt-6 flex gap-3 overflow-x-auto whitespace-nowrap">
+          <Button className="gap-2" variant="secondary">
+            <Image
+              src="/cabelo.svg"
+              width={16}
+              height={16}
+              alt="Cabelo"
+            ></Image>
+            Cabelo
+          </Button>
+          <Button className="flex-shrink-0 gap-2" variant="secondary">
+            <Image src="/barba.svg" width={16} height={16} alt="Barba"></Image>
+            Barba
+          </Button>
+          <Button className="flex-shrink-0 gap-2" variant="secondary">
+            <Image
+              src="/acabamento.svg"
+              width={16}
+              height={16}
+              alt="Acabamento"
+            ></Image>{" "}
+            Acabamento
+          </Button>
+          <Button className="flex-shrink-0 gap-2" variant="secondary">
+            <Image
+              src="/cabelo.svg"
+              width={16}
+              height={16}
+              alt="Cabelo"
+            ></Image>
+            Cabelo
+          </Button>
+          <Button className="flex-shrink-0 gap-2" variant="secondary">
+            <Image src="/barba.svg" width={16} height={16} alt="Barba"></Image>
+            Barba
+          </Button>
+          <Button className="flex-shrink-0 gap-2" variant="secondary">
+            <Image
+              src="/acabamento.svg"
+              width={16}
+              height={16}
+              alt="Acabamento"
+            ></Image>{" "}
+            Acabamento
           </Button>
         </div>
 
@@ -74,12 +125,33 @@ const Home = async () => {
           Recomendados
         </h2>
 
-        <div className="flex gap-4 overflow-auto">
+        <div className="no-scrollbar flex gap-4 overflow-auto">
           {barbershops.map(barbershop => (
             <BarbershopItem key={barbershop.id} barbershop={barbershop} />
           ))}
         </div>
+
+        {/* POPULARES */}
+        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
+          Populares
+        </h2>
+
+        <div className="no-scrollbar flex gap-4 overflow-auto">
+          {popularBarbershops.map(barbershop => (
+            <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+          ))}
+        </div>
       </div>
+
+      <footer>
+        <Card>
+          <CardContent className="px-5 py-5">
+            <p className="text-sm text-gray-400">
+              © 2023 Copyright <span className="font-bold">FSW Barber</span>
+            </p>
+          </CardContent>
+        </Card>
+      </footer>
     </div>
   )
 }
