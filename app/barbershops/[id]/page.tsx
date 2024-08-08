@@ -2,6 +2,7 @@ import {
   ChevronLeft,
   ChevronLeftIcon,
   MapPinIcon,
+  MenuIcon,
   SmartphoneIcon,
   StarIcon,
 } from "lucide-react"
@@ -12,6 +13,8 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import ServiceItem from "../../_components/service-item"
 import PhoneItem from "../../_components/phone-item"
+import { Sheet, SheetTrigger } from "../../_components/ui/sheet"
+import SidebarSheet from "../../_components/sidebar-sheet"
 interface BarbershopPageProps {
   params: {
     id: string
@@ -53,11 +56,17 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           </Link>
         </Button>
 
-        <Button
-          size="icon"
-          variant="secondary"
-          className="absolute right-4 top-4"
-        ></Button>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button size="icon" variant="outline" className="absolute right-4 top-4">
+              <MenuIcon />
+            </Button>
+          </SheetTrigger>
+
+          <SidebarSheet />
+        </Sheet>
+
+        
       </div>
 
       <div className="border-b border-solid p-5">
@@ -93,9 +102,9 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
 
       {/* CONTATO */}
 
-      <div className="p-5 space-y-3">
+      <div className="space-y-3 p-5">
         {barbershop.phones.map(phone => (
-          <PhoneItem phone = {phone} key={phone} />
+          <PhoneItem phone={phone} key={phone} />
         ))}
       </div>
     </div>
