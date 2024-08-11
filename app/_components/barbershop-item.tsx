@@ -2,8 +2,8 @@ import { Barbershop } from "@prisma/client"
 import { Card, CardContent } from "./ui/card"
 import Image from "next/image"
 import { Button } from "./ui/button"
-import { StarIcon } from "lucide-react"
 import { Badge } from "./ui/badge"
+import { StarIcon } from "lucide-react"
 import Link from "next/link"
 
 interface BarbershopItemProps {
@@ -17,25 +17,18 @@ const BarbershopItem = ({ barbershop }: BarbershopItemProps) => {
         {/* IMAGEM */}
         <div className="relative h-[159px] w-full">
           <Image
+            alt={barbershop.name}
             fill
             className="rounded-2xl object-cover"
             src={barbershop.imageUrl}
-            alt="{barbershop.name}"
           />
-          {/* AJUSTAR ESSE CODIGO PARA COLOCAR O RATING
-          
-          
-          1. CRIAR UMA TABELA NO BANCO 
-          2. SALVAR RATING NO BANCO
-          3. MOSTRAR NA TELA
-          
-          */}{" "}
+
           <Badge
             className="absolute left-2 top-2 space-x-1"
             variant="secondary"
           >
             <StarIcon size={12} className="fill-primary text-primary" />
-            <p className="text-xs font-semibold">5.0</p>
+            <p className="text-xs font-semibold">5,0</p>
           </Badge>
         </div>
 

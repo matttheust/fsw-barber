@@ -9,23 +9,23 @@ export const quickSearchOptions: QuickSearchOption[] = [
     title: "Cabelo",
   },
   {
-    title: "Barba",
     imageUrl: "/barba.svg",
+    title: "Barba",
   },
   {
-    title: "Acabamento",
     imageUrl: "/acabamento.svg",
+    title: "Acabamento",
   },
   {
-    title: "Sobrancelha",
-    imageUrl: "/sobrancelha.svg",
-  },
-  {
-    title: "Massagem",
     imageUrl: "/massagem.svg",
+    title: "Massagem",
   },
   {
-    title: "Hidratação",
+    imageUrl: "/sobrancelha.svg",
+    title: "Sobrancelha",
+  },
+  {
     imageUrl: "/hidratacao.svg",
+    title: "Hidratação",
   },
 ]

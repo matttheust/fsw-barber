@@ -10,8 +10,8 @@ interface PhoneItemProps {
 
 const PhoneItem = ({ phone }: PhoneItemProps) => {
   const handleCopyPhoneClick = (phone: string) => {
-      navigator.clipboard.writeText(phone)
-      toast.success("Telefone copiado com sucesso!")
+    navigator.clipboard.writeText(phone)
+    toast.success("Telefone copiado com sucesso!")
   }
 
   return (
@@ -21,7 +21,6 @@ const PhoneItem = ({ phone }: PhoneItemProps) => {
         <SmartphoneIcon />
         <p className="text-sm">{phone}</p>
       </div>
-
       {/* DIREITA */}
       <Button
         variant="outline"
