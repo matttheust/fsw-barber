@@ -9,8 +9,7 @@ Um sistema de gerenciamento de barbearias com funcionalidades para listar, criar
 - [Configuração do Ambiente](#configuração-do-ambiente)
 - [Execução do Projeto](#execução-do-projeto)
 - [Estrutura do Projeto](#estrutura-do-projeto)
-- [Contribuindo](#contribuindo)
-- [Licença](#licença)
+- [Design](#design)
 
 ## Sobre
 
@@ -35,11 +34,11 @@ O FSW Barber é um sistema para gerenciar barbearias, permitindo que os usuário
 Para rodar o projeto localmente, siga estes passos:
 
 1. **Clone o Repositório**
-    ``` git clone https://github.com/seu-usuario/fsw-barber.git ```
-    ``` cd fsw-barber ```
+   git clone https://github.com/seu-usuario/fsw-barber.git
+   cd fsw-barber
 
 2. **Instale as Dependências**
-    ``` npm install ```
+   npm install
 
 3. **Configure o Banco de Dados**
    
@@ -49,15 +48,15 @@ Para rodar o projeto localmente, siga estes passos:
 4. **Execute as Migrations**
    
    Crie as tabelas no banco de dados com o Prisma:
-    ``` npx prisma migrate dev --name init ```
+   npx prisma migrate dev --name init
 
 5. **Seed o Banco de Dados**
    
    Popule o banco de dados com dados fictícios:
-    ``` npx ts-node prisma/seed.ts ```
+   npx ts-node prisma/seed.ts
 
 6. **Inicie o Servidor**
-    ``` npm start ```
+   npm start
 
 ## Estrutura do Projeto
 
@@ -71,3 +70,9 @@ Para rodar o projeto localmente, siga estes passos:
 - `prisma/seed.ts`: Script para popular o banco de dados com dados fictícios.
 - `package.json`: Gerenciamento de dependências e scripts do projeto.
 - `.env`: Configurações do ambiente.
+
+## Design
+
+O design do projeto pode ser visualizado no Figma através do seguinte link:
+[FSW Barber Design no Figma](https://www.figma.com/design/ByDjVh7THsTnsSVRKNN8yy/FSW-5.0-%5BLive%5D?node-id=1-5&t=bz1BlGDITe4Nuqp3-0)
+
