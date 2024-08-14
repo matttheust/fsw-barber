@@ -1,44 +1,73 @@
-# Aula Zero
+# Projeto FSW Barber
 
-- [x] Setup do banco
-- [] Seeding do banco
-- [] Introdução ao Next.js
-- [] Tailwind e Shadcn
-- [] Git Hooks
+Um sistema de gerenciamento de barbearias com funcionalidades para listar, criar e gerenciar barbearias e seus serviços. Este projeto utiliza o Prisma ORM para interação com o banco de dados PostgreSQL e fornece uma API para integração com o frontend.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Índice
+- [Sobre](#sobre)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Configuração do Ambiente](#configuração-do-ambiente)
+- [Execução do Projeto](#execução-do-projeto)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Contribuindo](#contribuindo)
+- [Licença](#licença)
 
-## Getting Started
+## Sobre
 
-First, run the development server:
+O FSW Barber é um sistema para gerenciar barbearias, permitindo que os usuários visualizem informações sobre diferentes locais, suas ofertas de serviços e muito mais. O sistema é baseado em Node.js e Prisma, com uma base de dados PostgreSQL.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Funcionalidades
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Gerenciamento de Barbearias**: Adicionar, listar e visualizar detalhes das barbearias.
+- **Serviços de Barbearia**: Listar e visualizar serviços oferecidos por cada barbearia.
+- **Banco de Dados**: Utiliza PostgreSQL como banco de dados principal.
+- **Seeding**: Script para popular o banco de dados com dados fictícios.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias Utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Node.js**: Ambiente de execução JavaScript no servidor.
+- **Prisma**: ORM para Node.js que facilita a interação com o banco de dados.
+- **PostgreSQL**: Sistema de gerenciamento de banco de dados relacional.
+- **TypeScript**: Superset de JavaScript que adiciona tipagem estática.
 
-## Learn More
+## Configuração do Ambiente
 
-To learn more about Next.js, take a look at the following resources:
+Para rodar o projeto localmente, siga estes passos:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone o Repositório**
+    ``` git clone https://github.com/seu-usuario/fsw-barber.git ```
+    ``` cd fsw-barber ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Instale as Dependências**
+    ``` npm install ```
 
-## Deploy on Vercel
+3. **Configure o Banco de Dados**
+   
+   Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo, substituindo a URL pelo endereço do seu banco de dados PostgreSQL:
+   DATABASE_URL="postgresql://usuario:senha@localhost:5432/nome_do_banco"
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. **Execute as Migrations**
+   
+   Crie as tabelas no banco de dados com o Prisma:
+    ``` npx prisma migrate dev --name init ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. **Seed o Banco de Dados**
+   
+   Popule o banco de dados com dados fictícios:
+    ``` npx ts-node prisma/seed.ts ```
+
+6. **Inicie o Servidor**
+    ``` npm start ```
+
+## Estrutura do Projeto
+
+- `prisma/`: Contém o esquema Prisma e o script de seed.
+- `src/`: Código-fonte do projeto.
+  - `models/`: Modelos de dados.
+  - `services/`: Lógica de serviços.
+  - `routes/`: Definições das rotas da API.
+  - `utils/`: Funções utilitárias.
+- `prisma/schema.prisma`: Define o esquema do banco de dados.
+- `prisma/seed.ts`: Script para popular o banco de dados com dados fictícios.
+- `package.json`: Gerenciamento de dependências e scripts do projeto.
+- `.env`: Configurações do ambiente.
